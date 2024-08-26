@@ -5,11 +5,21 @@ const express = require('express'); // Framework web para Node.js
 const mongoose = require('mongoose'); // opción de biblioteca para manejar MongoDB en Node.js
 require('dotenv').config(); // Carga variables de entorno desde un archivo .env
 const cors = require('cors'); // Importar el paquete 'cors'
+const https = require('https'); // Importar el módulo HTTPS para crear un servidor HTTPS
+const fs = require('fs'); // Importar el módulo fs para manejar archivos del sistema
 
 // Crea la aplicación de Express
 const app = express();
 // Define el puerto en el que correrá el servidor (toma de la variable de entorno: 5001, o por defecto el puerto: 5000)
 const PORT = process.env.PORT || 5000;
+
+// Cargar los certificados SSL
+const privateKey = fs.readFileSync('../certs/server.key', 'utf8'); // Lee la llave privada del servidor desde el sistema de archivos
+const certificate = fs.readFileSync('../certs/server.crt', 'utf8'); // Lee el certificado público del servidor desde el sistema de archivos
+const ca = fs.readFileSync('../certs/ca/ca.crt', 'utf8'); // Lee el certificado raíz de la CA desde el sistema de archivos
+
+// Configuración de las credenciales SSL para el servidor HTTPS
+const credentials = { key: privateKey, cert: certificate, ca: ca };
 
 // Habilitar CORS para todas las solicitudes
 app.use(cors({ // Permite que cualquier origen pueda acceder a la API
@@ -136,4 +146,8 @@ app.get('/', (req, res) => {
 });
 
 //Inicia el servidor escuchando en el puerto especificado
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+//app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Crear servidor HTTPS y escuchar en el puerto especificado
+const httpsServer = https.createServer(credentials, app); // Crea un servidor HTTPS usando las credenciales SSL
+httpsServer.listen(PORT, () => console.log(`Server running on port ${PORT} with HTTPS`)); // Inicia el servidor en el puerto especificado

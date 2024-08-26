@@ -7,7 +7,7 @@ import { Admin, Resource, ListGuesser, EditGuesser, Create, SimpleForm, TextInpu
 import jsonServerProvider from 'ra-data-json-server'; // Proveedor de datos para conectarse a una API RESTful
 
 // Configura el proveedor de datos para conectarse a la API del backend
-const dataProvider = jsonServerProvider('http://localhost:5001/api');
+const dataProvider = jsonServerProvider('https://localhost:5001/api');
 
 // Componente para crear un nuevo post
 const PostCreate = (props) => (
