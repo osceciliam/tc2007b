@@ -1,0 +1,14 @@
+Administrador:
+
+curl -k -X POST https://localhost:5001/api/users/register \
+     -H "Content-Type: application/json" \
+     -d '{"username": "tc2007b", "password": "Student2024", "role": "administrador"}'
+
+Lector:
+
+curl -k -X POST https://localhost:5001/api/users/register \
+     -H "Content-Type: application/json" \
+     -d '{"username": "osvaldo", "password": "lector1", "role": "lector"}'
+
+
+db.users.find().pretty()
