@@ -1,35 +1,23 @@
-//Este código debe de ir en src/App.js dentro de la carpeta de frontend
-
-// Bibliotecas necesarias de React y React-Admin
 import './App.css';
-import * as React from 'react'; // Importa todas las funciones de React
-import { Admin, Resource, ListGuesser, EditGuesser, Create, SimpleForm, TextInput } from 'react-admin'; // Componentes principales de React-Admin
-import jsonServerProvider from 'ra-data-json-server'; // Proveedor de datos para conectarse a una API RESTful
+import * as React from 'react';
+import { Admin, Resource } from 'react-admin';
+import authProvider from './utils/authProvider';
+import dataProvider from './dataProvider/dataProvider';
+import Dashboard from './components/Dashboard';
+import LoginPage from './components/LoginPage';
+import history from './utils/history';
 
-// Configura el proveedor de datos para conectarse a la API del backend
-const dataProvider = jsonServerProvider('https://localhost:5001/api');
-
-// Componente para crear un nuevo post
-const PostCreate = (props) => (
-    <Create {...props}>
-        <SimpleForm>
-            <TextInput source="title" /> {/* Campo para el título del post */}
-            <TextInput source="content" /> {/* Campo para el contenido del post */}
-        </SimpleForm>
-    </Create>
-);
-
-// Componente principal de la aplicación
 const App = () => (
-    <Admin dataProvider={dataProvider}>
-        <Resource
-            name="posts" // Nombre del recurso que coincide con la colección en MongoDB
-            list={ListGuesser} // Componente para listar los posts
-            edit={EditGuesser} // Componente para editar un post
-            create={PostCreate} // Componente para crear un nuevo post
-        />
+    <Admin
+        history={history}
+        authProvider={authProvider}
+        dataProvider={dataProvider}
+        dashboard={Dashboard}
+        loginPage={LoginPage}  // Aquí aseguramos que se utilice nuestra página de login
+    >
+        {/* Añadir un recurso mínimo para evitar el mensaje de bienvenida predeterminado */}
+        <Resource name="posts" /> 
     </Admin>
 );
-
 
 export default App;
