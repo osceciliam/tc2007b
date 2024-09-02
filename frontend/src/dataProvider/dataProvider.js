@@ -1,3 +1,5 @@
+// Este archivo ayuda a obtener datos del backend a través de ra-data-json-server (proveedor de datos de React-Admin)
+
 import { fetchUtils } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { API_URL } from '../config';

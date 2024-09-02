@@ -1,3 +1,5 @@
+// Este archivo gestiona las acciones de nuestro CRUD para los posts del blog
+
 const Post = require('../models/Post');
 
 // Obtener todos los posts

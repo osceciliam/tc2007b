@@ -1,3 +1,5 @@
+// En este archivo se indican las rutas que de nuesta API (endpoints del backend) para la gestión de los posts del blog
+
 const express = require('express');
 const router = express.Router();
 const postController = require('../controllers/postController');

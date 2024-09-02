@@ -1,3 +1,5 @@
+// Este archivo verifica que el token de autorización que proporciona el frontend sea válido
+
 const jwt = require('jsonwebtoken');
 
 const authenticateJWT = (req, res, next) => {

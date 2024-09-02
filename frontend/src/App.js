@@ -1,22 +1,33 @@
+// Aplicación principal
 import './App.css';
 import * as React from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource, CustomRoutes } from 'react-admin';
 import authProvider from './utils/authProvider';
 import dataProvider from './dataProvider/dataProvider';
 import Dashboard from './components/Dashboard';
 import LoginPage from './components/LoginPage';
-import history from './utils/history';
+import { Route } from 'react-router-dom';
+import AdminDashboard from './pages/AdminDashboard';
+import ReaderDashboard from './pages/ReaderDashboard';
+import PostEdit from './pages/PostEdit'; 
+import PostCreate from './pages/PostCreate'; 
 
 const App = () => (
     <Admin
-        history={history}
         authProvider={authProvider}
         dataProvider={dataProvider}
         dashboard={Dashboard}
-        loginPage={LoginPage}  // Aquí aseguramos que se utilice nuestra página de login
+        loginPage={LoginPage}
     >
-        {/* Añadir un recurso mínimo para evitar el mensaje de bienvenida predeterminado */}
-        <Resource name="posts" /> 
+        <CustomRoutes>
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/reader-dashboard" element={<ReaderDashboard />} />
+        </CustomRoutes>
+        <Resource 
+            name="posts"
+            edit={PostEdit} 
+            create={PostCreate} 
+        />
     </Admin>
 );
 

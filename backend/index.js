@@ -17,24 +17,7 @@ const PORT = process.env.PORT || 5000;
 // Conectar a la base de datos
 connectDB();
 
-// Middleware de seguridad
-/* app.use(helmet()); // Aplicar configuraciones básicas de seguridad
-app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "https://localhost:3000"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
-            imgSrc: ["'self'", "https://localhost:5001"],
-            connectSrc: ["'self'", "https://localhost:5001"],
-            fontSrc: ["'self'", "https://fonts.gstatic.com"],
-            objectSrc: ["'none'"],
-            upgradeInsecureRequests: [],
-        },
-    })
-); */
-
-// Middleware
+// Middlewares
 app.use(express.json());
 console.log('Middleware express.json() configurado correctamente');
 app.use(cors({
@@ -50,15 +33,6 @@ app.use(cors({
 //app.get('/', (req, res) => {
 //    res.send('Hello World - TC2007B!'); // Mensaje que se verá en la ventana del navegador
 //});
-
-app.use((req, res, next) => {
-    console.log('Middleware de prueba:');
-    console.log('Request Method:', req.method);
-    console.log('Request URL:', req.url);
-    console.log('Request Headers:', req.headers);
-    console.log('Request Body:', req.body); // Esto debería mostrar el cuerpo de la solicitud
-    next();
-});
 
 // Rutas
 app.use('/api/users', userRoutes); // Prefijo de rutas para usuarios

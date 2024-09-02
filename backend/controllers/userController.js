@@ -1,3 +1,5 @@
+// Este archivo gestiona los procesos de registro y autenticación de usaurios
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');

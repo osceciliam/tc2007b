@@ -1,8 +1,8 @@
 import { API_URL } from '../config';
-//import { fetchUtils } from 'react-admin';
+// Archivo auxiliar en el proceso de login y gestión de permisos
 
 const authProvider = {
-    login: ({ username, password }) => {
+    login: ({ username, password }) => { // Comunicación con el backend en el proceso de login
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.open('POST', `${API_URL}/users/login`, true);
@@ -27,21 +27,21 @@ const authProvider = {
             xhr.send(requestBody); // Enviar el cuerpo de la solicitud como JSON
         });
     },
-    logout: () => {
+    logout: () => { // Elimina el token de autenticación al cerrar sesión
         localStorage.removeItem('auth');
         return Promise.resolve();
     },
-    checkAuth: () => {
+    checkAuth: () => { // Obtiene el token de local storage
         return localStorage.getItem('auth') ? Promise.resolve() : Promise.reject();
     },
-    checkError: ({ status }) => {
+    checkError: ({ status }) => { // Elimina el token de localstorage si algo falla
         if (status === 401 || status === 403) {
             localStorage.removeItem('auth');
             return Promise.reject();
         }
         return Promise.resolve();
     },
-    getPermissions: () => {
+    getPermissions: () => { // obtiene el rol de localstorage
         const auth = JSON.parse(localStorage.getItem('auth'));
         return auth ? Promise.resolve(auth.role) : Promise.reject();
     },

@@ -1,3 +1,5 @@
+//Modelo de datos para los posts del blog
+
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
