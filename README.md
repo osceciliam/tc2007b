@@ -59,9 +59,25 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado lo siguiente:
 ### Paso 1: Clonar el repositorio
 
 Clona el repositorio desde GitHub:
-
+```bash
 git clone https://github.com/osceciliam/tc2007b.git
-cd tc2007b (o el nombre de la carpeta raíz que hayas creado)
+```
+
+Asegurate de estar dentro de la carpeta raíz del proyecto clonado. Deberás poder ver las carpetas "backend" y "frontend":
+```bash
+cd tc2007b
+ls -l
+``` 
+
+Ejecuta el siguiente comando dentro de la carpeta raíz del proyecto clonado, esto te descargará todas las ramas:
+```bash
+git fetch --all
+```
+
+Verifica que ya tengas todas las ramas:
+```bash
+git branch -a
+```
 
 ### Paso 2: Instalar las dependencias
 
