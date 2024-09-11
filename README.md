@@ -19,8 +19,10 @@ El propósito de este proyecto es enseñar a los estudiantes cómo integrar un b
 
 El proyecto está dividido en dos partes principales:
 
-Carpeta-raíz/
+tc2007b/
+
 ├── frontend/            # Código del frontend construido con React-Admin
+
 └── backend/             # Código del backend en Node.js y MongoDB
 
 ### Estructura del backend:
@@ -167,8 +169,9 @@ El proyecto tiene varias ramas en Git que ilustran diferentes etapas de desarrol
 
 Puedes cambiar entre ramas utilizando el siguiente comando:
 
+```bash
 git checkout <nombre-de-la-rama>
-
+```
 
 
 ---
