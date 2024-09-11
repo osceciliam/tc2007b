@@ -145,7 +145,7 @@ El proyecto tiene varias ramas en Git que ilustran diferentes etapas de desarrol
 
 - **main**: Incluye la funcionalidad básica del CRUD entre frontend y backend.
 - **certificados**: Agrega soporte para HTTPS utilizando certificados autofirmados.
-- **login**: Implementa autenticación, autorización, y gestión de roles. El código en esta rama corresponde al proyecto que incluye todas las funcionalidades descritas.
+- **login**: Implementa autenticación, autorización, y gestión de roles. El código en esta rama corresponde al proyecto que incluye todas las funcionalidades descritas. Puedes reemplazar los certificados por los que tu hayas creado.
 
 Puedes cambiar entre ramas utilizando el siguiente comando:
 
