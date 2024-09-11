@@ -26,23 +26,37 @@ Carpeta-raíz/
 ### Estructura del backend:
 
 backend/
+
 ├── config/              # Configuraciones (como conexión a la base de datos)
+
 ├── controllers/         # Lógica de los controladores (CRUD, autenticación)
+
 ├── middlewares/         # Middlewares (como verificación JWT)
+
 ├── models/              # Modelos de datos (Post, User)
+
 ├── routes/              # Definición de rutas (endpoints API)
+
 ├── .env                 # Variables de entorno
+
 └── index.js             # Entrada principal del servidor
 
 ### Estructura del frontend:
 
 frontend/
+
 ├── src/
+
 │   ├── components/      # Componentes principales (Dashboard, Login)
+
 │   ├── pages/           # Páginas para diferentes roles (Admin, Lector)
+
 │   ├── utils/           # Proveedores de datos y autenticación
+
 │   ├── App.js           # Aplicación principal de React-Admin
+
 │   └── config.js        # Configuraciones (como la URL del API)
+
 └── package.json         # Dependencias del frontend
 
 ## Requerimientos
@@ -50,7 +64,7 @@ frontend/
 Antes de ejecutar el proyecto, asegúrate de tener instalado lo siguiente:
 
 - **Node.js** v14 o superior
-- **MongoDB** v4.4 o superior
+- **MongoDB** v4.4 o superior (verifica que esté corriendo en tu entorno de desarrollo)
 - **Git**
 - **npm** (generalmente incluido con Node.js)
 
@@ -97,12 +111,16 @@ cd ../frontend
 npm install
 ```
 
+**Es posible que tengas conflictos de dependencias en las ramas 'certificados' y 'login', por lo que será necesario ejecutar el comando 'npm intsall' en la rama correspondiente que te genere conflictos** 
+
 ### Variables de Entorno
 
-Asegúrate de configurar las variables de entorno necesarias en el archivo `.env` del backend. Aquí tienes un ejemplo de las variables que debes definir:
+Asegúrate de configurar las variables de entorno necesarias en el archivo `.env` del backend (tienes que crear el archivo .env, ya que no está publicado en el repositoprio). Aquí tienes un ejemplo de las variables que debes definir:
 
 MONGO_URI=mongodb://localhost:27017/tc2007b
+
 PORT=5001
+
 JWT_SECRET=my_super_secret_key_tcb2007b
 
 En el frontend, la URL del backend ya está configurada en el archivo `src/config.js`:
@@ -137,7 +155,7 @@ Esto iniciará el frontend en `https://localhost:3000`, donde React-Admin intera
 
 Una vez que ambas partes estén ejecutándose, puedes probar el funcionamiento desde el navegador visitando el frontend en `https://localhost:3000`. Inicia sesión con las credenciales que hayas registrado y prueba las funcionalidades de acuerdo al rol (administrador o lector).
 
-Si tienes dudas o quieres crear tus propios usuarios, revisa el archivo auxiliar del Modulo 2 que se encuentra en Canvas.
+**Si tienes dudas o quieres crear tus propios usuarios, revisa el archivo auxiliar del Modulo 2 que se encuentra en Canvas.**
 
 ## Ramas y Funcionalidades
 
